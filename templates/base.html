@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Movie Review</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+
+<body>
+<div id="box">
+
+    <header>
+        <nav>
+
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'home view with profile' %}">Home</a>
+            {% endif %}
+
+            {% if not request.user.is_authenticated %}
+                <a href="{% url 'home view without profile' %}">Home</a>
+            {% endif %}
+
+            <a href="{% url 'reviews' %}">Movie Reviews</a>
+
+            <ul>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout user' %}">Logout</a></li>
+                    <li><a href="{% url 'details profile' user.pk %}">Profile</a></li>
+                {% endif %}
+
+                {% if not request.user.is_authenticated %}
+                    <li><a href="{% url 'login user' %}">Login</a></li>
+                    <li><a href="{% url 'create profile' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    {% block page_content %}
+    {% endblock %}
+
+    <footer>
+        <div>
+            &copy;Created by Ivo Ganev. All rights reserved.
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

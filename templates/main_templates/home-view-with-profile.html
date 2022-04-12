@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<section id="catalogPage">
+
+    {% if not reviews %}
+        <p>There are no Movie Reviews!</p>
+    {% endif %}
+    {% if reviews %}
+        <h1>All Movie Reviews</h1>
+    {% endif %}
+
+</section>
+
+{% endblock %}

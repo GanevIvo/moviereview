@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
+fieldset {
+    float: left;
+    width: 50%;
+    margin: 1em auto;
+    padding: 2em;
+    border-radius: 2px;
+    border-color: white;
+    background: white;
+    box-shadow: 0 2px 2px green;
+
+}
+
+fieldset legend {
+    font-weight: 500;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: center;
+    background: green;
+    -o-border-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, green 50%) 1 round;
+    border-width: 1px;
+    border-style: solid;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    color: green;
+}
+
+input, input + label > i {
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid green;
+    background: green;
+    display: block;
+    width: 100%;
+    color: green;
+    transition: all 0.3s ease;
+}
+
+input[type=text], input[type=number], input[type=email] {
+    font-size: 1.2em;
+    line-height: 1;
+    padding: 0.3em 0.4em;
+    margin: 0 0.5em 1em 0;
+}
+
+input[type=text]::-webkit-input-placeholder, input[type=number]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder {
+    color: #343b44;
+    line-height: 1.2;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+input[type=text]:hover, input[type=number]:hover, input[type=email]:hover {
+    border-color: green;
+}
+
+input[type=text]:focus, input[type=number]:focus, input[type=email]:focus {
+    outline: none;
+    border-color: green;
+}
+
+.register{
+    margin: 2.2em;
+    width: 400px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 100px;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    background-image: linear-gradient(315deg, white, green 10%);
+    background-size: 200% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
+    color: white;
+    font-family: "Lato", serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+#registerPage {
+    font-family: "Lato", serif;
+    font-size: 15px;
+    color: green;
+    padding: 1em 0 10em;
+}
+
+* {
+    box-sizing: content-box;
+}
+
+p {
+    padding-top: 20px;
+}
+
+.login{
+    margin: 2.2em;
+    width: 400px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 100px;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    background-image: linear-gradient(315deg, white, green 10%);
+    background-size: 200% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
+    color: white;
+    font-family: "Lato", serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 50px;
+}
+
+#loginPage {
+    font-family: "Lato", serif;
+    font-size: 15px;
+    color: green;
+    padding: 12.5em 45em 10em;
+}
+
+* {
+    box-sizing: content-box;
+}
+
+p {
+    padding-top: 20px;
+}

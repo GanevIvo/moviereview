@@ -1,0 +1,112 @@
+body {
+    background-image: url('images/matrix-background.jpg');
+    background-size: cover;
+}
+
+.container-inline {
+  margin: 1rem;
+  padding: 2rem 2rem;
+
+}
+
+nav,
+footer {
+    background-color: #0B0C10;
+    width: 100%;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5px 0 3px;
+    margin: 0;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    position: relative;
+    margin: 5px;
+}
+
+nav ul {
+    margin: 0 0 0 auto;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 2px;
+}
+
+li::before {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 0.5em;
+    color: white;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 15px;
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+
+nav a:hover {
+    cursor: pointer;
+    color: green;
+    font-weight: bolder;
+}
+
+#welcomePage {
+    float: left;
+    width: 40%;
+    color: white;
+    font-size: 40px;
+    padding: 50px;
+    margin: 20px;
+
+}
+
+#welcomePage img {
+    width: 80%
+}
+
+nav > img {
+    width: 90px;
+    height: 80px;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+h1 {
+    display: block;
+    font-size: 5em;
+    margin-block-start: 2em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 370px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: white;
+}
+
+h2 {
+    display: block;
+    font-size: 5em;
+    margin-block-start: auto;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: white;
+}
