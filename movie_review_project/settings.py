@@ -1,9 +1,11 @@
 import os
 from pathlib import Path
 
+from decouple import config
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-xn%3-ys-jq5zfqm(fid2@4=1e&$p8wg0&snm(y&z8&vh#93ylz'
+SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = True
 
@@ -51,12 +53,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'movie_review_project.wsgi.application'
 
 DATABASES = {
-    'default': {
+      'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'asd123fgh123',
-        'HOST': '127.0.0.1',
+        'NAME': config('NAME'),
+        'USER': config('USER'),
+        'PASSWORD': config('PASSWORD'),
+        'HOST': config('HOST'),
         'PORT': '5432',
     }
 }
