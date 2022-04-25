@@ -1,7 +1,10 @@
+from datetimewidget.widgets import DateWidget
 from django import forms
 from django.contrib.auth import forms as auth_forms
+from django.contrib.auth.forms import PasswordChangeForm
+
 from movie_review_project.common.mixins import BootstrapFormMixin
-from movie_review_project.accounts.models import Profile
+from movie_review_project.accounts.models import Profile, MovieReviewUser
 from movie_review_project.main.models import MovieReview
 
 
@@ -46,10 +49,11 @@ class EditProfileForm(BootstrapFormMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._init_bootstrap_form_controls()
+        self.fields['image'].help_text = ''
 
     class Meta:
         model = Profile
-        fields = ['first_name', 'last_name', 'email', 'gender', 'date_of_birth']
+        fields = ['first_name', 'last_name', 'email', 'gender', 'date_of_birth', 'image']
         widgets = {
             'first_name': forms.TextInput(
                 attrs={
@@ -72,20 +76,33 @@ class EditProfileForm(BootstrapFormMixin, forms.ModelForm):
                 }
             ),
 
-            'date_of_birth': forms.DateInput(
+            'date_of_birth': DateWidget(
                 attrs={
                     'min': '1920-01-01',
-                }
+                }, usel10n=True, bootstrap_version=5
             )
         }
 
 
+class ChangePasswordForm(PasswordChangeForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['old_password'].help_text = ''
+        self.fields['new_password1'].help_text = ''
+        self.fields['new_password2'].help_text = ''
+
+
 class DeleteProfileForm(BootstrapFormMixin, forms.ModelForm):
+    def get_queryset(self):
+        user = self.request.user
+        return self.model.objects.filter(user=user)
+
     def save(self, commit=True):
-        self.instance.delete()
         MovieReview.objects.all().delete()
+        self.instance.delete()
         return self.instance
 
     class Meta:
-        model = Profile
+        model = MovieReviewUser
         fields = '__all__'

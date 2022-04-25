@@ -1,19 +1,10 @@
 {% extends 'base.html' %}
 {% block page_content %}
-{% load static%}
-
-<div class="container-inline">
-    <section id="welcomePage">
-        <div id="welcome-message">
-            <h1>Create Profile:</h1>
-        </div>
-
-    </section>
 
     <section id="registerPage">
         <form method="POST" action="{% url 'create profile' %}">
             <fieldset>
-                <legend>Profile</legend>
+                <legend>Create Profile</legend>
 
                 {{ form }}
                 {% csrf_token %}
@@ -22,5 +13,5 @@
             </fieldset>
         </form>
     </section>
-</div>
+
 {% endblock %}

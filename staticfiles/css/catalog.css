@@ -1,45 +1,105 @@
 .card-box {
-    box-shadow: 0 0 30px 0;
+    box-shadow: 0 0 10px 10px white;
     padding: 20px;
     margin-left: 120px;
+    background-color: #131518;
     background-position: right 35% bottom 45%;
     box-sizing: border-box;
-    border-radius: 15px;
+    border-radius: 30px;
     float: left;
-    height: 500px;
-    color: green;
+    height: 750px;
+    width: 470px;
+    color: white;
     font-weight: bold;
     margin-bottom: 70px;
     margin-top: 20px;
+    overflow: hidden;
+
+}
+
+.card-box-home-page {
+    box-shadow: 0 0 10px 10px white;
+    padding: 20px;
+    background-color: #131518;
+    background-position: right 35% bottom 45%;
+    box-sizing: border-box;
+    border-radius: 30px;
+    float: left;
+    height: 750px;
+    width: 470px;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+    margin: -130px 1px 1px 800px;
+}
+
+.card-box-home-page-no-profile {
+    box-shadow: 0 0 10px 10px white;
+    padding: 20px;
+    background-color: #131518;
+    background-position: right 35% bottom 45%;
+    box-sizing: border-box;
+    border-radius: 30px;
+    float: left;
+    height: 750px;
+    width: 470px;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+    margin: -130px 1px 1px 650px;
 }
 
 .btn-group > a {
 	width: 200%;
 	height: 50px;
 	cursor: pointer;
-	border: none;
-    border-radius: 10px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 15px;
 	display: inline;
 	align-items: center;
 	justify-content: center;
-	background-color: green;
-	background-image: linear-gradient(315deg, green 0%, white 74%);
+	background-color: white;
 	background-size: 200% 100%;
 	background-position: left;
 	background-repeat: no-repeat;
 	transition: 500ms;
-    color: white;
+    color: black;
     font-family: "Lato", serif;
     font-size: 20px;
-    margin-bottom: 10px;
-    margin-top: 20px;
     padding: 10px;
+    margin: 30px 1px 1px 1px;
     text-decoration: none;
 }
+
+.btn-groupB > a {
+	width: 200%;
+	height: 50px;
+	cursor: pointer;
+    border-color: white;
+    border-style: solid;
+    border-radius: 15px;
+	display: inline;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	background-size: 200% 100%;
+	background-position: left;
+	background-repeat: no-repeat;
+	transition: 500ms;
+    color: black;
+    font-family: "Lato", serif;
+    font-size: 20px;
+    padding: 10px;
+    margin: 30px 1px 1px 1px;
+    text-decoration: none;
+}
+
 
 .btn-group > a:hover {
 	background-position: right;
 }
+
 
 .btn-group > a:before {
 	color: rgba(255,255,255,0.5);
@@ -57,6 +117,7 @@
 	transition: 500ms;
 }
 
+
 #catalogPage h1{
     color: white;
     text-align: center;
@@ -69,12 +130,46 @@
 .card-box > img {
     display: block;
     width: 250px;
-    border-radius: 15px;
+    border-radius: 30px;
+    border-style: double;
 
 }
 
+.card-box-home-page > img {
+    display: block;
+    width: 250px;
+    border-radius: 30px;
+    border-style: double;
+
+}
+
+.card-box-home-page-no-profile > img {
+    display: block;
+    width: 250px;
+    border-radius: 30px;
+    border-style: double;
+
+}
+
+.card-box-MovieDetails > img {
+    display: block;
+    width: 350px;
+    height: 490px;
+    border-style: double;
+    border-color: white;
+    margin: 1px 1px 1px 650px;
+}
+
+
+
 .btn-group {
-    margin: 20px auto 0;
+    margin: 40px 1px 1px 1px;
+    text-align: center;
+}
+
+
+.btn-groupB {
+    margin: -65px 1px 1px 920px;
 }
 
 #catalogPage > p {

@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 {% block page_content %}
 
-
-
+    <div class="text-for-home-no-profile">
+        Last movie added:
+    </div>
+    <div class="card-box-home-page-no-profile">
+            <img src="{{ movie.movie_cover.url }}" alt="Cover Image" width="330" height="330">
+            <p class="name">Rating: {{ movie.get_avg_rating }}/10</p>
+            <div>
+                <div class="text-center">
+                    <p class="name">Title: {{ movie.movie_name }}</p>
+                    <p class="datetime">Released: {{ movie.date_release }}</p>
+                    <p class="genre">Genre: {{ movie.genre }}</p>
+                    <p class="artist">Cast: {{ movie.movie_star_actors }}</p>
+                </div>
+            </div>
+    </div>
 
 {% endblock %}

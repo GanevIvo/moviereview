@@ -77,6 +77,11 @@ class Profile(models.Model):
         unique=True,
     )
 
+    image = models.ImageField(
+        default='staticfiles/images/default-profile-picture.jpg',
+        upload_to='mediafiles/profile_images/',
+    )
+
     user = models.OneToOneField(
         MovieReviewUser,
         on_delete=models.CASCADE,
@@ -85,13 +90,4 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
-
-
-class ProfileImage(models.Model):
-
-    image = models.ImageField(
-        upload_to='mediafiles/',
-        default='staticfiles/images/default-profile-picture.jpg',
-    )
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
 

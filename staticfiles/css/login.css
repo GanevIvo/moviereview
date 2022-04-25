@@ -2,14 +2,13 @@
 
 fieldset {
     float: left;
-    width: 50%;
-    margin: 1em auto;
-    padding: 2em;
-    border-radius: 2px;
-    border-color: white;
-    background: white;
-    box-shadow: 0 2px 2px green;
-
+    width: 40em;
+    margin: auto;
+    padding: 3.5em;
+    border-radius: 250px;
+    border-color: green;
+    background: #131518;
+    box-shadow: 0 2px 2px #131518;
 }
 
 fieldset legend {

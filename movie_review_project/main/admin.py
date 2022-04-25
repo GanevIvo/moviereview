@@ -22,7 +22,7 @@ class MovieAdmin(admin.ModelAdmin):
 
 @admin.register(MovieReview)
 class MovieReviewAdmin(admin.ModelAdmin):
-    list_display = ('movie', 'stars')
+    list_display = ('movie', 'rating')
 
 
 @admin.register(Reviews)

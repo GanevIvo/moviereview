@@ -2,8 +2,9 @@ from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
 from django.views import generic as views
 
-from movie_review_project.accounts.forms import CreateProfileForm, EditProfileForm, DeleteProfileForm
-from movie_review_project.accounts.models import Profile
+from movie_review_project.accounts.forms import CreateProfileForm, EditProfileForm, DeleteProfileForm, \
+    ChangePasswordForm
+from movie_review_project.accounts.models import Profile, MovieReviewUser
 
 
 class UserLoginView(auth_views.LoginView):
@@ -25,7 +26,7 @@ class UserLogoutView(auth_views.LogoutView):
 class CreateProfileView(views.CreateView):
     form_class = CreateProfileForm
     template_name = 'accounts/create-profile.html'
-    success_url = reverse_lazy('home view with profile')
+    success_url = reverse_lazy('login user')
 
 
 class EditProfileView(views.UpdateView):
@@ -41,15 +42,20 @@ class EditProfileView(views.UpdateView):
 class DetailsProfileView(views.DetailView):
     template_name = 'accounts/details-profile.html'
     model = Profile
+    context_object_name = 'profile'
 
 
 class ChangeProfilePasswordView(auth_views.PasswordChangeView):
     template_name = 'accounts/change-profile-password.html'
+    form_class = ChangePasswordForm
+    success_message = "Successfully Changed Your Password"
+    success_url = reverse_lazy('home view with profile')
 
 
 class DeleteProfileView(views.DeleteView):
     template_name = 'accounts/delete-profile.html'
     form_class = DeleteProfileForm
-    model = Profile
+    model = MovieReviewUser
 
-    success_url = reverse_lazy('home view without profile')
+    success_url = reverse_lazy('login user')
+

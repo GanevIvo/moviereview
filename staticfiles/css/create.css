@@ -1,5 +1,5 @@
 fieldset {
-  margin: auto;
+  margin: 20px 0 0 650px;
   padding: 3.5em;
   width: 40em;
   border-radius: 250px;
@@ -65,29 +65,36 @@ input[type=text]:focus, input[type=number]:focus, textarea:focus, input[type=url
 textarea {
   height: 100px;
   font-family: "Lato", serif;
-  color: green;
+  color: black;
+}
+
+head {
+    font-size: 80px;
+    color: white;
+
 }
 
 .add-movie, .edit-movie, .delete-movie, .delete-profile {
-	width: 150px;
-	height: 50px;
-	cursor: pointer;
-	border: none;
-  border-radius: 10px;
-	display: inline;
-	align-items: center;
-	justify-content: center;
-	background-color: green;
-	background-image: linear-gradient(315deg, green 0%, white 74%);
-	background-size: 200% 100%;
-	background-position: left;
-	background-repeat: no-repeat;
-	transition: 500ms;
-  color: white;
-  font-family: "Lato", serif;
-  font-size: 20px;
-  margin-bottom: 5px;
-  margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 70px;
+    border-color: white;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    background-image: linear-gradient(315deg, green 100%, white 74%);
+    background-size: 200% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
+    color: white;
+    font-family: "Lato", serif;
+    font-size: 20px;
+    margin: 70px 0 0 200px;
 }
 
 .createPage, .editPage {
@@ -119,3 +126,84 @@ textarea::-webkit-scrollbar-thumb {
   background-color: green;
 }
 
+.align-center {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.align-center2 {
+    display: block;
+    margin: -13px 0 0 135px;
+    text-align: center;
+    padding: 23px 60px 22px;
+}
+
+.align-center3 {
+    display: block;
+    margin: 50px 0 0 135px;
+    text-align: center;
+}
+
+.dontDeleteProfile {
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 70px;
+    border-color: white;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    background-image: linear-gradient(315deg, green 100%, white 74%);
+    background-size: 200% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
+    color: white;
+    font-family: "Lato", serif;
+    font-size: 20px;
+    padding: 10px 100px 10px 55px;
+    margin: 70px 0 0 200px;
+}
+
+.deleteMovie {
+    width: 190px;
+    height: 50px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 70px;
+    border-color: white;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    background-image: linear-gradient(315deg, green 100%, white 74%);
+    background-size: 200% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
+    color: white;
+    font-family: "Lato", serif;
+    font-size: 20px;
+    margin: 40px -30px 0 50px;
+}
+
+.text-for-home {
+    display: block;
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    margin: 50px 1px 1px 80px;
+}
+
+.text-for-home-no-profile {
+    display: block;
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    margin: 50px 1px 1px 120px;
+}

@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block page_content %}
+    <section id="catalogPage">
+        {% if not moviereview_list %}
+            <p>There are no Movie Reviews!</p>
+        {% endif %}
+        {% for review in moviereview_list %}
+            <div class="card-box">
+                <img src="{{ review.movie.movie_cover.url }}" alt="Cover Image" width="330" height="330">
+                <div class="text-center">
+                    <p class="name">Movie: {{ review.movie }}</p>
+                    <p class="genre">Review: {{ review.content }}</p>
+                    <p class="artist">Rating: {{ review.rating }}/10</p>
+                    <p class="name">Author: {{ review.user.username}}</p>
+                    <p class="datetime">Published: {{ review.date_added }}</p>
+                </div>
+                {% if review.user == request.user %}
+                    <div class="btn-group">
+                        <a href="{% url 'delete movie review' user.pk %}">Delete Review</a>
+                        <a href="{% url 'edit movie review' user.pk %}">Edit Review</a>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+    </section>
 
-</body>
-</html>
+{% endblock %}

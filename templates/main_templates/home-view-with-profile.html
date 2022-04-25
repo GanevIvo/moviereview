@@ -1,15 +1,32 @@
 {% extends 'base.html' %}
 {% block page_content %}
 
-<section id="catalogPage">
-
-    {% if not reviews %}
-        <p>There are no Movie Reviews!</p>
-    {% endif %}
-    {% if reviews %}
-        <h1>All Movie Reviews</h1>
-    {% endif %}
-
-</section>
+    <div class="text-for-home">
+        Last movie added for review:
+    </div>
+    <div class="card-box-home-page">
+            <img src="{{ movie.movie_cover.url }}" alt="Cover Image" width="330" height="330">
+            <p class="name">Rating: {{ movie.get_avg_rating }}/10</p>
+            <div>
+                <div class="text-center">
+                    <p class="name">Title: {{ movie.movie_name }}</p>
+                    <p class="datetime">Released: {{ movie.date_release }}</p>
+                    <p class="genre">Genre: {{ movie.genre }}</p>
+                    <p class="artist">Cast: {{ movie.movie_star_actors }}</p>
+                </div>
+                {% if request.user.is_authenticated %}
+                <div class="btn-group">
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'movies details' movie.pk %}">Movie Details</a>
+                        <a href="{% url 'delete movie' movie.pk %}">Delete Movie</a>
+                    {% else %}
+                        <a href="{% url 'movies details' movie.pk %}">Movie Details</a>
+                        <a href="{% url 'add movie review' user.pk %}">Add Review</a>
+                        <a href="{% url 'reviews' %}">Reviews</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+    </div>
 
 {% endblock %}

@@ -1,1 +1,18 @@
-<h1>ADD MOVIE REVIEW</h1>
+{% extends 'base.html' %}
+{% block page_content %}
+
+    <section id="detailsPage">
+    <div class="wrapperAddReview">
+        <form method="POST" action="{% url 'add movie review' request.user.pk %}" enctype="multipart/form-data">
+            <label class="movieText">
+                {{ form }}
+                {% csrf_token %}
+            <button type="submit" class="buttonAddReview">Add Review</button>
+            </label>
+        </form>
+    </div>
+
+
+</section>
+
+{% endblock %}
