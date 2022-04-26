@@ -2,7 +2,6 @@ from datetimewidget.widgets import DateWidget
 from django import forms
 from django.contrib.auth import forms as auth_forms
 from django.contrib.auth.forms import PasswordChangeForm
-
 from movie_review_project.common.mixins import BootstrapFormMixin
 from movie_review_project.accounts.models import Profile, MovieReviewUser
 from movie_review_project.main.models import MovieReview
@@ -79,7 +78,7 @@ class EditProfileForm(BootstrapFormMixin, forms.ModelForm):
             'date_of_birth': DateWidget(
                 attrs={
                     'min': '1920-01-01',
-                }, usel10n=True, bootstrap_version=5
+                }, bootstrap_version=5
             )
         }
 

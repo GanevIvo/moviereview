@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block page_content %}
-
 <section id="detailsPage">
     <div class="wrapperMovie">
         <form method="POST" action="{% url 'create movie' %}" enctype="multipart/form-data">
@@ -10,10 +9,7 @@
                 {% csrf_token %}
             <button type="submit" class="buttonAdd">Add Movie</button>
             </label>
-
         </form>
     </div>
-
-
 </section>
 {% endblock %}

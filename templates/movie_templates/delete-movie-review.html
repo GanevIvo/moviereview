@@ -1,1 +1,16 @@
-<h1>DELETE MOVIE REVIEW</h1>
+{% extends 'base.html' %}
+{% block page_content %}
+    <section id="detailsPage">
+    <div class="wrapperDelete">
+        <div class="profileText-movie-review">
+            <h1>Delete Movie Review?</h1>
+            <form method="POST" action="{% url 'delete movie review' moviereview.id %}">
+                {{ form }}
+                {% csrf_token %}
+                <button class="deleteMovie" type="submit">Yes</button>
+                <a href="{% url 'reviews' %}" class="buttonNo">No</a>
+            </form>
+        </div>
+    </div>
+    </section>
+{% endblock %}

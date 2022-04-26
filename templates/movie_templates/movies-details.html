@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<div class="wrapperMovieDetails">
+
+    <div class="card-box-MovieDetails">
+            <img src="{{ movie.movie_cover.url }}" alt="Movie Cover" width="330" height="330">
+        </div>
+        <div class="movieText">
+            <h3>{{ movie.movie_name }}</h3>
+        </div>
+        <div class="movieText">
+            <h4>Genre:  {{ movie.genre }}</h4>
+            <h4>Cast:  {{ movie.movie_star_actors }}</h4>
+            <h4>Rating: {{ movie.get_avg_rating }}/10</h4>
+        </div>
+        <div class="movieText">
+            <h5>Description:  {{ movie.movie_description }}</h5>
+        </div>
+        <div class="movieText">
+            <h6>Released:  {{ movie.date_release }}</h6>
+        </div>
+    <div class="btn-groupB">
+        <a href="{% url 'movies' %}">Back</a>
+    </div>
+</div>
+
+{% endblock %}

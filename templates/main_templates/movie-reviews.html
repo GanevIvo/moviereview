@@ -14,14 +14,14 @@
                     <p class="name">Author: {{ review.user.username}}</p>
                     <p class="datetime">Published: {{ review.date_added }}</p>
                 </div>
-                {% if review.user == request.user %}
+                 {% if review.user == request.user %}
                     <div class="btn-group">
-                        <a href="{% url 'delete movie review' user.pk %}">Delete Review</a>
-                        <a href="{% url 'edit movie review' user.pk %}">Edit Review</a>
+                        <a href="{% url 'delete movie review' review.id %}">Delete Review</a>
+                        <a href="{% url 'edit movie review' review.id %}">Edit Review</a>
                     </div>
                 {% endif %}
             </div>
-            {% endfor %}
+        {% endfor %}
     </section>
 
 {% endblock %}

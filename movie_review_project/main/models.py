@@ -12,7 +12,7 @@ class Movie(models.Model):
     MIN_CHAR_FOR_MOVIE_NAME = 1
     MAX_CHAR_FOR_MOVIE_GENRE = 25
     MIN_CHAR_FOR_MOVIE_GENRE = 4
-    MAX_CHAR_FOR_MOVIE_DESCRIPTION = 50
+    MAX_CHAR_FOR_MOVIE_DESCRIPTION = 100
     MAX_CHAR_FOR_MOVIE_ACTORS = 40
 
     movie_name = models.CharField(
@@ -33,8 +33,7 @@ class Movie(models.Model):
     movie_description = models.CharField(max_length=MAX_CHAR_FOR_MOVIE_DESCRIPTION)
 
     movie_cover = models.ImageField(
-        upload_to='mediafiles/movie_covers/',
-        default='staticfiles/images/default-movie-icon.jpg',
+        upload_to='movie_covers/',
     )
 
     date_added = models.DateTimeField(auto_now_add=True)
@@ -44,16 +43,15 @@ class Movie(models.Model):
 
     def get_avg_rating(self):
         avg_rating = MovieReview.objects.filter(movie=self).aggregate(Avg('rating'))
+        if avg_rating['rating__avg'] is None:
+            return 0
         avg_rating = round(avg_rating['rating__avg'], 2)
+
         if avg_rating is not None:
             if avg_rating == 10:
                 return 10
 
-            else:
-                return avg_rating
-
-        else:
-            return 0
+        return avg_rating
 
     class Meta:
         ordering = ['-date_added']

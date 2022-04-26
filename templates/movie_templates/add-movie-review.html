@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block page_content %}
-
     <section id="detailsPage">
     <div class="wrapperAddReview">
         <form method="POST" action="{% url 'add movie review' request.user.pk %}" enctype="multipart/form-data">
@@ -11,8 +10,5 @@
             </label>
         </form>
     </div>
-
-
-</section>
-
+    </section>
 {% endblock %}

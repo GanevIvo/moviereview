@@ -18,6 +18,7 @@
                 <div class="btn-group">
                     {% if request.user.is_superuser %}
                         <a href="{% url 'movies details' movie.pk %}">Movie Details</a>
+                        <a href="{% url 'edit movie' movie.id %}">Edit Movie</a>
                         <a href="{% url 'delete movie' movie.pk %}">Delete Movie</a>
                     {% else %}
                         <a href="{% url 'movies details' movie.pk %}">Movie Details</a>

@@ -9,13 +9,14 @@ class MovieReviewForm(forms.ModelForm):
     class Meta:
         model = MovieReview
         fields = '__all__'
-        exclude = ['user',]
+        exclude = ['user', ]
 
 
 class EditMovieReviewForm(forms.ModelForm):
     class Meta:
         model = MovieReview
         fields = '__all__'
+        exclude = ['user', ]
 
 
 class ReviewsForm(forms.ModelForm):
@@ -28,6 +29,13 @@ class CreateMovieForm(forms.ModelForm):
     class Meta:
         model = Movie
         fields = '__all__'
+
+
+class EditMovieForm(forms.ModelForm):
+    class Meta:
+        model = Movie
+        fields = '__all__'
+        exclude = ['rating', ]
 
 
 class DeleteMovieForm(BootstrapFormMixin, DisabledFieldsFormMixin, forms.ModelForm):
@@ -43,3 +51,18 @@ class DeleteMovieForm(BootstrapFormMixin, DisabledFieldsFormMixin, forms.ModelFo
     class Meta:
         model = Movie
         exclude = ('user_profile',)
+
+
+class DeleteMovieReviewForm(BootstrapFormMixin, DisabledFieldsFormMixin, forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._init_bootstrap_form_controls()
+        self._init_disabled_fields()
+
+    def save(self, commit=True):
+        self.instance.delete()
+        return self.instance
+
+    class Meta:
+        model = MovieReview
+        exclude = ('user_profile', 'movie', )

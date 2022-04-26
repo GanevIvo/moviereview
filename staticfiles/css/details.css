@@ -54,6 +54,16 @@
     padding: 15px;
 }
 
+.wrapperEditReview {
+    height: 500px;
+    width: 700px;
+    border-radius: 60px 60px 60px 60px;
+    box-shadow: 0 0 2px 2px green;
+    margin: 100px 0 0 620px;
+    background-color: #131518;
+    padding: 15px;
+}
+
 .movieCover, .profilePage {
     float: right;
     height: 100%;
@@ -71,6 +81,19 @@
     padding-left: 10px;
     padding-top: 20px;
     color: green;
+}
+
+.profileText-movie-review {
+    padding-left: 10px;
+    padding-top: 20px;
+    color: green;
+}
+
+.profileText-movie-review h1{
+    color: green;
+    font-weight: bolder;
+    font-size: 40px;
+    margin: 15px 0 50px 130px;
 }
 
 .movieText h1, .profileText h1 {
@@ -297,7 +320,7 @@
     font-family: "Lato", serif;
     font-size: 20px;
     text-decoration: none;
-    margin: 30px 25px 10px 240px;
+    margin: 130px 25px 10px 240px;
 }
 
 .buttonEdit {

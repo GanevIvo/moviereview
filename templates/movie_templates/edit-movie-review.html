@@ -1,1 +1,16 @@
-<h1>EDIT MOVIE REVIEW</h1>
+{% extends 'base.html' %}
+{% block page_content %}
+
+<section id="detailsPage">
+    <div class="wrapperEditReview">
+        <form method="POST" action="{% url 'edit movie review' moviereview.id %}" enctype="multipart/form-data">
+            <label class="movieText">
+                {{ form }}
+                {% csrf_token %}
+            <button type="submit" class="buttonAddReview">Update Review</button>
+            </label>
+        </form>
+    </div>
+    </section>
+
+{% endblock %}

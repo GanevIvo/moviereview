@@ -78,8 +78,8 @@ class Profile(models.Model):
     )
 
     image = models.ImageField(
-        default='staticfiles/images/default-profile-picture.jpg',
-        upload_to='mediafiles/profile_images/',
+        default='/images/default-profile-picture.jpg',
+        upload_to='profile_images/',
     )
 
     user = models.OneToOneField(

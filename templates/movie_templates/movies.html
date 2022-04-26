@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<section id="catalogPage">
+
+    {% if not movie %}
+        <p>There are no Movies!</p>
+    {% endif %}
+
+    {% for m in movie %}
+        <div class="card-box">
+            <img src="{{ m.movie_cover.url }}" alt="Cover Image" width="330" height="330">
+            <p class="name">Rating: {{ m.get_avg_rating }}/10</p>
+            <div>
+                <div class="text-center">
+                    <p class="name">Title: {{ m.movie_name }}</p>
+                    <p class="datetime">Released: {{ m.date_release }}</p>
+                    <p class="genre">Genre: {{ m.genre }}</p>
+                    <p class="artist">Cast: {{ m.movie_star_actors }}</p>
+                </div>
+                {% if request.user.is_authenticated %}
+                <div class="btn-group">
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'movies details' m.pk %}">Movie Details</a>
+                        <a href="{% url 'edit movie' m.pk %}">Edit Movie</a>
+                        <a href="{% url 'delete movie' m.pk %}">Delete Movie</a>
+                    {% else %}
+                        <a href="{% url 'movies details' m.pk %}">Movie Details</a>
+                        <a href="{% url 'add movie review' user.pk %}">Add Review</a>
+                        <a href="{% url 'reviews' %}">Reviews</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

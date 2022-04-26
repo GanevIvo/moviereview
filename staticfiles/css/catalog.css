@@ -8,7 +8,7 @@
     border-radius: 30px;
     float: left;
     height: 750px;
-    width: 470px;
+    width: 480px;
     color: white;
     font-weight: bold;
     margin-bottom: 70px;
@@ -16,6 +16,7 @@
     overflow: hidden;
 
 }
+
 
 .card-box-home-page {
     box-shadow: 0 0 10px 10px white;
@@ -26,7 +27,7 @@
     border-radius: 30px;
     float: left;
     height: 750px;
-    width: 470px;
+    width: 480px;
     color: white;
     font-weight: bold;
     overflow: hidden;

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+    <section id="detailsPage">
+    <div class="wrapperDelete">
+        <div class="profileText">
+            <h1>Delete Movie?</h1>
+            <form method="POST" action="{% url 'delete movie' movie.pk %}">
+                {{ form }}
+                {% csrf_token %}
+                <button class="deleteMovie" type="submit">Yes</button>
+                <a href="{% url 'movies' %}" class="buttonNo">No</a>
+            </form>
+        </div>
+    </div>
+    </section>
+{% endblock %}

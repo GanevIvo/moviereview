@@ -1,17 +1,28 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import Avg
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import generic as views
-from movie_review_project.main.forms import CreateMovieForm, MovieReviewForm, EditMovieReviewForm, DeleteMovieForm
+from movie_review_project.main.forms import CreateMovieForm, MovieReviewForm, DeleteMovieForm, EditMovieReviewForm, \
+    DeleteMovieReviewForm, EditMovieForm
 from movie_review_project.main.models import Movie, MovieReview
 
 
 class CreateMovieView(views.CreateView):
     form_class = CreateMovieForm
     template_name = 'admin_movie_templates/create-movie.html'
-    success_url = reverse_lazy('reviews')
+
+    def get_success_url(self):
+        return reverse_lazy('reviews')
+
+
+class EditMovieView(views.UpdateView):
+    model = Movie
+    template_name = 'admin_movie_templates/edit-movie.html'
+    form_class = EditMovieForm
+
+    def get_success_url(self):
+        return reverse_lazy('movies')
 
 
 class DeleteMovieView(views.DeleteView):
@@ -45,9 +56,6 @@ class AddMovieReviewView(views.CreateView):
     def dispatch(self, *args, **kwargs):
         return super(AddMovieReviewView, self).dispatch(*args, **kwargs)
 
-    def get_success_url(self):
-        return reverse_lazy('reviews')
-
     def form_valid(self, form):
         form.instance.user = self.request.user
         obj = form.save(commit=False)
@@ -56,14 +64,23 @@ class AddMovieReviewView(views.CreateView):
         form.save()
         return HttpResponseRedirect(self.get_success_url())
 
+    def get_success_url(self):
+        return reverse_lazy('reviews')
+
 
 class EditMovieReviewView(views.UpdateView):
+    model = MovieReview
     form_class = EditMovieReviewForm
     template_name = 'movie_templates/edit-movie-review.html'
-    success_url = reverse_lazy('reviews')
+
+    def get_success_url(self):
+        return reverse_lazy('reviews')
 
 
 class DeleteMovieReviewView(views.DeleteView):
     model = MovieReview
+    form_class = DeleteMovieReviewForm
     template_name = 'movie_templates/delete-movie-review.html'
-    success_url = reverse_lazy('reviews')
+
+    def get_success_url(self):
+        return reverse_lazy('reviews')
