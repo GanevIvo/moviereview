@@ -26,7 +26,9 @@ class UserLogoutView(auth_views.LogoutView):
 class CreateProfileView(views.CreateView):
     form_class = CreateProfileForm
     template_name = 'accounts/create-profile.html'
-    success_url = reverse_lazy('login user')
+
+    def get_success_url(self):
+        return reverse_lazy('login user')
 
 
 class EditProfileView(views.UpdateView):
@@ -49,7 +51,9 @@ class ChangeProfilePasswordView(auth_views.PasswordChangeView):
     template_name = 'accounts/change-profile-password.html'
     form_class = ChangePasswordForm
     success_message = "Successfully Changed Your Password"
-    success_url = reverse_lazy('home view with profile')
+
+    def get_success_url(self):
+        return reverse_lazy('home view with profile')
 
 
 class DeleteProfileView(views.DeleteView):
@@ -57,5 +61,5 @@ class DeleteProfileView(views.DeleteView):
     form_class = DeleteProfileForm
     model = MovieReviewUser
 
-    success_url = reverse_lazy('login user')
-
+    def get_success_url(self):
+        return reverse_lazy('login user')

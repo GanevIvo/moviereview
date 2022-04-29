@@ -4,12 +4,12 @@ from django.core.exceptions import ValidationError
 def validate_only_letters(value):
 
     if not all(ch.isalpha() for ch in value):
-        raise ValidationError('The Name must contain only letters')
+        raise ValidationError('Must contain only letters')
 
 
 def validate_only_alphanumeric(value):
     if not all(ch.isalnum() for ch in value):
-        raise ValidationError('The Movie must contain only letters and numbers')
+        raise ValidationError('Must contain only letters and numbers')
 
 
 def validate_star_rating(value):

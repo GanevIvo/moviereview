@@ -4,7 +4,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 
 from movie_review_project.accounts.managers import MovieReviewUserManager
-from movie_review_project.common.validators import validate_only_letters
+from movie_review_project.common.validators import validate_only_letters, validate_only_alphanumeric
 
 
 class MovieReviewUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
@@ -13,6 +13,10 @@ class MovieReviewUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin
     username = models.CharField(
         max_length=USERNAME_MAX_LENGTH,
         unique=True,
+        validators=(
+            validate_only_alphanumeric,
+        )
+
     )
 
     email = models.EmailField(
@@ -78,7 +82,7 @@ class Profile(models.Model):
     )
 
     image = models.ImageField(
-        default='/images/default-profile-picture.jpg',
+        default='staticfiles/images/default-profile-picture.jpg',
         upload_to='profile_images/',
     )
 

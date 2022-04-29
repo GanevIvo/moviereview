@@ -4,7 +4,8 @@ from django.db import models
 from django.db.models import Avg
 
 from movie_review_project.accounts.models import MovieReviewUser
-from movie_review_project.common.validators import validate_star_rating
+from movie_review_project.common.validators import validate_star_rating, validate_only_alphanumeric, \
+    validate_only_letters
 
 
 class Movie(models.Model):
@@ -16,7 +17,10 @@ class Movie(models.Model):
     MAX_CHAR_FOR_MOVIE_ACTORS = 40
 
     movie_name = models.CharField(
-        max_length=MAX_CHAR_FOR_MOVIE_NAME
+        max_length=MAX_CHAR_FOR_MOVIE_NAME,
+        validators=(
+            validate_only_alphanumeric,
+        )
     )
 
     date_release = models.DateField()
@@ -25,6 +29,7 @@ class Movie(models.Model):
         max_length=MAX_CHAR_FOR_MOVIE_GENRE,
         validators=(
             MinLengthValidator(MIN_CHAR_FOR_MOVIE_GENRE),
+            validate_only_letters,
         )
     )
 
@@ -58,6 +63,7 @@ class Movie(models.Model):
 
 
 class MovieReview(models.Model):
+    CONTENT_MAX_LENGTH = 100
     RATING_CHOICES = (
         (1, 1),
         (2, 2),
@@ -75,6 +81,7 @@ class MovieReview(models.Model):
     user = models.ForeignKey(MovieReviewUser, on_delete=models.CASCADE)
 
     content = models.TextField(
+        max_length=CONTENT_MAX_LENGTH,
         blank=True,
         null=True
     )

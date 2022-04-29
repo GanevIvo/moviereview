@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-
 from movie_review_project.accounts.views import UserLoginView, UserLogoutView, CreateProfileView, EditProfileView, \
     DetailsProfileView, ChangeProfilePasswordView, DeleteProfileView
+
 
 urlpatterns = [
     path('login/', UserLoginView.as_view(), name='login user'),

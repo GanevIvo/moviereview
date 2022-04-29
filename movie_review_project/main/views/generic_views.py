@@ -1,6 +1,5 @@
 from django.urls import reverse_lazy
 from django.views import generic as views
-
 from movie_review_project.main.forms import ReviewsForm
 from movie_review_project.main.models import MovieReview, Movie
 

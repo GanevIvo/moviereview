@@ -1,11 +1,20 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import generic as views
 from movie_review_project.main.forms import CreateMovieForm, MovieReviewForm, DeleteMovieForm, EditMovieReviewForm, \
     DeleteMovieReviewForm, EditMovieForm
 from movie_review_project.main.models import Movie, MovieReview
+
+
+def custom_page_not_found_view(request, exception):
+    return render(request, "error-404.html", {})
+
+
+def custom_error_view(request, exception=None):
+    return render(request, "error-500.html", {})
 
 
 class CreateMovieView(views.CreateView):

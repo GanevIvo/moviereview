@@ -6,3 +6,5 @@ urlpatterns = [
     path('', include('movie_review_project.main.urls')),
     path('', include('movie_review_project.accounts.urls')),
 ]
+
+

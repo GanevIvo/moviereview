@@ -9,14 +9,6 @@ from movie_review_project.main.models import MovieReview
 
 class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):
 
-    first_name = forms.CharField(
-        max_length=Profile.FIRST_NAME_MAX_LENGTH,
-    )
-
-    last_name = forms.CharField(
-        max_length=Profile.LAST_NAME_MAX_LENGTH,
-    )
-
     email = forms.EmailField()
 
     def __init__(self, *args, **kwargs):
@@ -29,8 +21,6 @@ class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):
         user = super().save(commit=commit)
 
         profile = Profile(
-            first_name=self.cleaned_data['first_name'],
-            last_name=self.cleaned_data['last_name'],
             email=self.cleaned_data['email'],
             user=user,
         )
@@ -41,7 +31,7 @@ class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):
 
     class Meta:
         model = auth_forms.get_user_model()
-        fields = ('username', 'password1', 'password2', 'first_name', 'last_name')
+        fields = ('username', 'password1', 'password2', )
 
 
 class EditProfileForm(BootstrapFormMixin, forms.ModelForm):

@@ -5,6 +5,9 @@ from movie_review_project.main.views.generic_views import Reviews, HomeWithProfi
 from movie_review_project.main.views.movie_views import CreateMovieView, AddMovieReviewView, MoviesView, \
     MoviesDetailsView, DeleteMovieView, EditMovieReviewView, DeleteMovieReviewView, EditMovieView
 
+handler404 = 'movie_review_project.main.views.movie_views.custom_page_not_found_view'
+handler500 = 'movie_review_project.main.views.movie_views.custom_error_view'
+
 urlpatterns = [
     path('', HomeWithoutProfileView.as_view(), name='home view without profile'),
     path('home/', HomeWithProfileView.as_view(), name='home view with profile'),
@@ -21,3 +24,5 @@ urlpatterns = [
     path('movie/delete-review/<int:pk>', DeleteMovieReviewView.as_view(), name='delete movie review'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
